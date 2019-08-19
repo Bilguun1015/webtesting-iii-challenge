@@ -11,4 +11,10 @@ describe('<Controls />', () => {
 
         expect(tree.toJSON).toMatchSnapshot();
     });
+    it('should display a message Lock Gate', () => {
+        
+        const { getByText, queryByText } = render(<Controls />)
+        fireEvent.click(getByText('Close Gate'))
+        expect(queryByText(/Open Gate/i)).toBeFalsy();
+    })
 })
